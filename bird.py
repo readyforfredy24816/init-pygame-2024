@@ -35,7 +35,7 @@ class Bird:
         However, you should know that PyGame counts coordinates increasing from top to bottom.
         Therefore, to make the bird fly upwards, the resulting velocity should be negative.
         """
-        pass
+        self.velocity -= BIRD_JUMP
 
     def update(self):
         """
@@ -49,7 +49,10 @@ class Bird:
         Remember that PyGame counts coordinates increasing from top to bottom.
         Thus, an increase in coordinates will result in the bird moving down on the screen.
         """
-        pass
+        self.velocity += GRAVITY
+        self.y += self.velocity
+        if self.velocity > 20:
+            self.velocity = 20
 
     def draw(self):
         """
@@ -59,7 +62,7 @@ class Bird:
         Hint: use a sub-function of screen!
         You will need to use the image, x-coordinate and y-coordinate of the bird.
         """
-        pass
+        screen.blit(bird_img, (self.x, self.y))
 
     def check_collision_with_floor(self):
         """

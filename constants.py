@@ -11,7 +11,9 @@ SCREEN_HEIGHT = 900             # Changing these two might break things. Approac
 # Bigger number -> Higher jumps.
 # According to our testing, a jump height of 15 works great!
 
-PIPE_GAP = 500                  # Bigger number -> Bigger gap (default = 500, no gap = 400)
-PIPE_VELOCITY = 5               # Bigger number -> Faster moving pipes (default = 5)
-DISTANCE_BETWEEN_PIPES = 300    # Bigger number -> More pipes (default = 300)
-TIME_BEFORE_FIRST_PIPE = 750    # Bigger number -> More time to wait (default = 750)
+PIPE_GAP = 540                  # Bigger number -> Bigger gap (default = 500, no gap = 400)
+PIPE_VELOCITY = 6              # Bigger number -> Faster moving pipes (default = 5)
+DISTANCE_BETWEEN_PIPES = 3000    # Bigger number -> More pipes (default = 300)
+TIME_BEFORE_FIRST_PIPE = 300    # Bigger number -> More time to wait (default = 750)
+GRAVITY = 0.6
+BIRD_JUMP = 12

@@ -120,21 +120,27 @@ def main():
             bird.draw()
             if bird.check_collision_with_floor():
                 game_state = "dead"
-                # TODO: Play a sound!
+                # TODONE: Play a sound!
                 # Play the hurt sound here.
+                hurt_sound.play()
 
             # Pipe update and draw
             for pipe in pipes.copy():
                 pipe.update()
                 pipe.draw()
+                if pipe.has_been_passed == False and bird.x > pipe.x + 25:
+                    pipe.has_been_passed = True
+                    score += 1
 
-                # TODO: Detect if bird is currently between pipes.
+
+                # TODONE: Detect if bird is currently between pipes.
                 # If yes, add +1 to the score.
                 # Don't forget to update the pipe's has_been_passed value to True!
                 # You can try to play a point sound here as well.
 
-                # TODO: Play a sound!
+                # TODONE: Play a sound!
                 # Play the point sound here.
+                    point_sound.play()
 
                 # Removes the pipe when it's off screen
                 if pipe.off_screen():
@@ -146,9 +152,6 @@ def main():
                 if len(pipes) == 0:
                     pipes.append(Pipe())
 
-                # TODO: Generate new pipes
-                
-
             # Collision detection
             for pipe in pipes:
 
@@ -158,8 +161,9 @@ def main():
                     # Please don't touch this...
                     if bird.y < pipe.y + 290 or bird.y + 70 > pipe.y + PIPE_GAP:
                         game_state = "dead"
-                        # TODO: Play a sound!
+                        # TODONE: Play a sound!
                         # Play the hurt sound here.
+                        hurt_sound.play()
 
             # Display the live score counter
             score_text = font_large.render(str(math.floor(score)), True, (255, 255, 255))
